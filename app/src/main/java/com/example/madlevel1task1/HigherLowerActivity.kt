@@ -52,6 +52,9 @@ class HigherLowerActivity : AppCompatActivity() {
      */
     private fun onHigherClick() {
         rollDice()
+
+        if (currentThrow > lastThrow) onAnswerCorrect()
+        else onAnswerIncorrect()
     }
 
     /**
@@ -59,6 +62,9 @@ class HigherLowerActivity : AppCompatActivity() {
      */
     private fun onLowerClick() {
         rollDice()
+
+        if (currentThrow < lastThrow) onAnswerCorrect()
+        else onAnswerIncorrect()
     }
 
     /**
@@ -66,6 +72,9 @@ class HigherLowerActivity : AppCompatActivity() {
      */
     private fun onEqualClick() {
         rollDice()
+
+        if (currentThrow == lastThrow) onAnswerCorrect()
+        else onAnswerIncorrect()
     }
 
     /**
@@ -82,5 +91,6 @@ class HigherLowerActivity : AppCompatActivity() {
      */
     private fun onAnswerIncorrect() {
         val toast = Toast.makeText(applicationContext, R.string.incorrect, Toast.LENGTH_SHORT)
+        toast.show()
     }
 }
